@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import StudentView from '../views/StudentView.vue'
 import Termview from '../views/TermView.vue'
 import LoginView from '../views/UserView.vue'
-import CoursesView from '../views/CoursesView.vue'
+import MydocumentsView from '../views/MydocumentsView.vue'
 import TranscriptView from '../views/TranscriptView.vue'
 
 
@@ -17,9 +17,9 @@ const routes = [
     component: StudentView
   },
   {
-    path: '/courses',
-    name: 'courses',
-    component: CoursesView,
+    path: '/Mydocuments',
+    name: 'Mydocuments',
+    component: MydocumentsView,
   },
     {
       path: '/terms',

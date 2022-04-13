@@ -9,7 +9,7 @@
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Courses</v-toolbar-title>
+        <v-toolbar-title>My documents</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -20,15 +20,16 @@
           v-model="dialog"
           max-width="500px"
         >
+        <!-- new document button -->
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="primary"
+              color="red"
               dark
               class="mb-2"
               v-bind="attrs"
               v-on="on"
             >
-              New Course
+              New Document
             </v-btn>
           </template>
           <v-card>
@@ -39,16 +40,19 @@
             <v-card-text>
               <v-container>
                 <v-row>
+                  <!-- edit item champs -->
                   <v-col
                     cols="12"
                     sm="6"
                     md="4"
                   >
                     <v-text-field
-                      v-model="editedItem.name"
-                      label="name"
+                      v-model="editedItem.Data "
+                      label="Data"
                     ></v-text-field>
                   </v-col>
+
+                 
                   <v-col
                     cols="12"
                     sm="6"
@@ -56,8 +60,8 @@
                   >
                   
                     <v-text-field
-                      v-model="editedItem.code"
-                      label="code"
+                      v-model="editedItem.TLP"
+                      label="TLP"
                     ></v-text-field>
                   </v-col>
                 </v-row>
@@ -83,21 +87,13 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+     
       </v-toolbar>
     </template>
 
     <!-- eslint-disable-next-line -->
+    <!-- edit/delete -->
+  <!-- eslint-disable-next-line -->
     <template v-slot:item.actions="{item}">
       <v-icon
         small
@@ -124,7 +120,6 @@
   </v-data-table>
 </template>
 
-
 <script>
   export default {
     data: () => ({
@@ -132,31 +127,44 @@
       dialogDelete: false,
       headers: [
         {
-          text: 'Code',
+          text: 'Data ',
           align: 'start',
           sortable: false,
           value: 'name',
         },
-        { text: 'Name', value: 'name' },
+         {
+          text: 'TLP',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+        {
+          text: 'Data type',
+          align: 'start',
+          sortable: false,
+          value: 'name',
+        },
+
         { text: 'Actions', value: 'actions', sortable: false },
       ],
       desserts: [],
       editedIndex: -1,
       editedItem: {
-        code:'' ,
-        name: '',
+        Data:'1' ,
+        TLP: 'RED',
        
       },
       defaultItem: {
-        code:'' ,
-        name: '',
+        Ddata:'1' ,
+        TLP: 'RED',
+       
        
       },
     }),
 
     computed: {
       formTitle () {
-        return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+        return this.editedIndex === -1 ? 'New Item' : 'Edit'
       },
     },
 
@@ -177,11 +185,17 @@
       initialize () {
         this.desserts = [
           {
-            code:'CS101',
-            name: 'Intoduction to programming'
-            
-        
-      }
+            Data:' 1 ',
+            TLP: 'RED' 
+          },
+          {
+            Data:' 1 ',
+            TLP: 'WHITE' 
+          },
+          {
+            Data:' 2 ',
+            TLP: 'RED' 
+          }
       ]
       },
 
@@ -191,17 +205,7 @@
         this.dialog = true
       },
 
-      deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialogDelete = true
-      },
-
-      deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
-        this.closeDelete()
-      },
-
+      
       close () {
         this.dialog = false
         this.$nextTick(() => {

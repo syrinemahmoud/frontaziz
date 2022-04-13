@@ -114,7 +114,7 @@ export default {
         sortable: false,
         value: "name",
       },
-      { text: "StudentID", value: "StudentID" },
+      { text: "StudentID", sortable: false, value: "StudentID" },
       { text: "Dateofbirth", value: "Dateofbirth" },
       { text: "CIN", value: "CIN" },
       { text: "Actions", value: "actions", sortable: false },
