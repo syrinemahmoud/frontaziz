@@ -41,7 +41,6 @@ const routes = [
 
 },
 
-
     {
     path: '/user',
     name: 'user',
