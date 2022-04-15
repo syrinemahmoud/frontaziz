@@ -2,13 +2,15 @@
   <v-app id="inspire">
     <v-navigation-drawer  v-model="drawer" app>
       <v-list-item>
+        <v-expansion-panel>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
             Transcript generator
           </v-list-item-title>
         </v-list-item-content>
+        </v-expansion-panel>
       </v-list-item>
-
+       
       <v-divider></v-divider>
 
       <v-list dense nav>
@@ -100,6 +102,8 @@ export default {
       { title: "Students", icon: "mdi-help-box", to: "/student" },
       { title: "Users", icon: "mdi-help-box", to: "/user" },
       { title: "Transcript", icon: "mdi-help-box", to: "/transcript" },
+      { title: "RequestTranscript", icon: "mdi-help-box", to: "/requesttranscript" }
+      ,
     ],
   }),
 };

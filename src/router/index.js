@@ -5,7 +5,7 @@ import Termview from '../views/TermView.vue'
 import LoginView from '../views/UserView.vue'
 import CoursesView from '../views/CoursesView.vue'
 import TranscriptView from '../views/TranscriptView.vue'
-
+import Requesttranscript from '../views/Requesttranscript.vue'
 
 Vue.use(VueRouter)
 
@@ -37,7 +37,13 @@ const routes = [
 {
     path: '/transcript',
     name: 'transcript',
-    component:TranscriptView,
+    component:RequesttranscriptView,
+
+},
+{
+  path: '/requesttranscript',
+  name: 'requesttranscript',
+  component:TranscriptView,
 
 },
 
