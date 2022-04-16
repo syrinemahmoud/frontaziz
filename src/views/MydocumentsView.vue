@@ -23,7 +23,7 @@
         <!-- new document button -->
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              color="red"
+              color="secondary"
               dark
               class="mb-2"
               v-bind="attrs"

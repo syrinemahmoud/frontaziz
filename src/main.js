@@ -3,6 +3,7 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
 
+
 import AppLayout from "./layout/AppLayout"
 import RegisterLayout from "./layout/RegisterLayout"
 

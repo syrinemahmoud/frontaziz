@@ -37,35 +37,33 @@
             </v-img>
      </v-toolbar-side-icon>
      
-      <v-toolbar-title>SAMA PARTNERS</v-toolbar-title>
-      
-      
-      
+    <v-toolbar-title>SAMA PARTNERS</v-toolbar-title>
       <v-spacer></v-spacer>
 
- <v-row justify-content="end">
-   
-    <v-avatar color="primary">
+
+      <v-row justify-content="flex-end">
+      <v-avatar color="primary">
       <v-icon dark>
         mdi-account-circle
       </v-icon>
-    </v-avatar>
+      </v-avatar>
     </v-row>
 
+    
       <!--
       <router-link to="/login">
         <v-btn icon value="login">
           <span> Sign up</span>
         </v-btn>
       </router-link>-->
-  <!--dropdown button--> 
 
-  <div class="text-center">
-    <v-menu offset-y>
+    <!--dropdown button--> 
+    <div class="text-center">
+     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
-          dark
+          light
           v-bind="attrs"
           v-on="on"
         >
@@ -95,7 +93,13 @@
       <router-view></router-view>
     </v-main>
 
+
+
   </v-app>
+
+
+
+  
 </template>
 
 <script>
@@ -105,8 +109,9 @@ export default {
   data: () => ({
     drawer: null,
     items: [
+
       { title: "My documents", icon: "mdi-view-dashboard", to: "/Mydocuments" },
-      { title: "Term", icon: "mdi-help-box", to: "/terms" },
+      { title: "Shared with me", icon: "mdi-help-box", to: "/Sharedwithme " },
       { title: "Students", icon: "mdi-help-box", to: "/student" },
       { title: "Users", icon: "mdi-help-box", to: "/user" },
       { title: "Transcript", icon: "mdi-help-box", to: "/transcript" },
